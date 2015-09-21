@@ -8,10 +8,17 @@ app.get('/', function(req,res){
   res.send("I like node");
 });
 
-app.get('/blog/:title', function(req,res){
+app.get('/blog/:title?', function(req,res){
   var title = req.params.title;
-  var post = posts[title];
-  res.send(post);
+ 
+  if(title === undefined) {
+    res.status(503);
+    res.send("this page is under construction");
+  } else {
+     var post = posts[title];
+     res.send(post);
+  }
+  
 });
 
 app.listen(3000, function(){
