@@ -1,0 +1,22 @@
+{
+  "name": "another-express-app",
+  "version": "1.0.0",
+  "description": "get it working",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jocelynalsdorf/node-express-app1.git"
+  },
+  "author": "jocelyn alsdorf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jocelynalsdorf/node-express-app1/issues"
+  },
+  "homepage": "https://github.com/jocelynalsdorf/node-express-app1#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
