@@ -5,6 +5,8 @@ var posts = require('./mock/posts.json');
 
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/templates');
+app.use('/static', express.static(__dirname + '/public'));
+
 
 app.get('/', function(req,res){
   res.render('index');
@@ -17,7 +19,7 @@ app.get('/blog/:title?', function(req,res){
     res.status(503);
     res.send("this page is under construction");
   } else {
-     var post = posts[title];
+     var post = posts[title] || {};
      res.render('post', {post: post});
   }
   
