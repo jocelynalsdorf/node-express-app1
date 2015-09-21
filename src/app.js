@@ -14,7 +14,20 @@ app.use('/static', express.static(__dirname + '/public'));
 
 
 app.get('/', function(req,res){
+  var path = req.path;
+  //creating a var due to the logic statement in _nav that hides the navbar everywhere but '/'
+  res.locals.path = path
   res.render('index');
+  //the above  res.locals.path = path is exact same as giving path object as the 2nd argument below
+  //res.render('index', {path: path});
+});
+
+app.get('/posts', function(req,res){
+  if(req.query.raw) {
+    res.json(posts);
+  }else {
+  res.json(postsLists);
+  }
 });
 
 app.get('/blog/:title?', function(req,res){
